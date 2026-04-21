@@ -124,7 +124,7 @@ def submit_answer() -> None:
             "error",
         )
 
-    st.session_state.answer_field = ""
+    # st.session_state.answer_field = ""
     pick_next_task()
 
 
@@ -143,7 +143,9 @@ def reset_game() -> None:
         "message": "Налаштуйте діапазон і натисніть «Почати».",
         "message_type": "info",
     }
-    st.session_state.answer_field = ""
+
+    if "answer_field" in st.session_state:
+        del st.session_state["answer_field"]
 
 
 def render_message():
